@@ -1,83 +1,169 @@
-html {
-    height: 100%;
-    font-size: 11px;
-    background: -webkit-linear-gradient(#87EFFF, #4A7C83);
-    background-size: auto;
-    background-repeat: no-repeat;
-}
-body, html {
-    padding: 5% 10%;
-    justify-content: center;
-    vertical-align: auto;
-}
-textarea {
-    resize: none;
-    outline: none;
-    user-select: none;
-    border: .1rem solid white;
-    border-radius: .5rem;
-    font-size: 2rem;
-    font-family: 'Franklin Gothic';
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    opacity: 1;
-    word-wrap: break-word;
-}
-input:focus {
-    outline: none;
-}
-div {
-    display: inline-block;
-}
-.keys{
-    display: inline;
-    flex-direction: row;
-    flex-wrap: wrap;
-    min-height: 100vh;
-    width: 1000px;
-    height: 300px;
-    align-items: center;
-    justify-content: center;
-}
-.row1, .row2, .row3, .row4,.space, .text{
-    justify-content:center;
-    clear:right;
-    display:flex;
-}
-.key {
-    border: .1rem solid white;
-    border-radius: .5rem;
-    margin: 1rem;
-    font-size: 1.5rem;
-    padding: 1rem .5rem;
-    transition: all .07s ease;
-    text-align: center;
-    color: white;
-    background: rgba(0,0,0,0.4);
-    text-shadow: 0 0 .5rem black;
-    float: initial;
-    justify-content: center;
-}
-.key:not(#backspace):not(#space) {
-    width: 5rem;
-}
-#backspace {
-    width: 12em;
-}
-#space {
-    width: 27.5%;
-}
-.playing {
-  transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
+body {
+  background-color: #FFF;
+  margin: 0;
+  padding: 0;
 }
 
-kbd {
-    height: 100%;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #5FEAE1;
+    position: fixed;
+    top: 0;
     width: 100%;
-    display: block;
-    font-size: 3rem;
-    font-family: 'Franklin Gothic Book';
 }
+
+li {
+    float: right;
+}
+
+li:last-child {
+    border-left: none;
+}
+
+li a {
+    display: block;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.header {
+  background-image: url("images/0.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 700px;
+  width: 100%;
+}
+.header2{
+  background-image: url("pages/images/waves.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 700px;
+  width: 100%;
+}
+
+/* Add the ID selector to this CSS rule */
+
+ #header-text {
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  top: 25%;
+  width: 60%;
+}
+
+
+h1 {
+  color: #FFF;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 60px;
+  margin: 0;
+}
+
+h2 {
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 100;
+}
+
+h3 {
+  color: #FFF;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 30px;
+  margin: 10px 0px;
+  text-align: center;
+}
+
+h4 {
+  color: #000000;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 50px;
+  font-weight: 300;
+}
+
+p {
+  color: #545454;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 24px;
+  //margin: 0 auto;
+  text-align: center;
+  width: 60%;
+}
+
+/* Add the class selector to this CSS rule */
+
+ .partner {
+  padding: 20px;
+  margin: 0 auto;
+  border-bottom: 1px solid #EEE;
+}
+
+.partner img {
+  position: relative;
+  top: 6px;
+}
+
+.aa-logo {
+  padding-left: 6px;
+}
+
+.main {
+  background: url("images/tealy.png");
+  margin: 0;
+  padding: 40px;
+}
+
+.value-props {
+  margin: 40px auto;
+  width: 60%;
+}
+
+.prop, .partner{
+   text-align: center;
+}
+
+.prop {
+  border: 1px solid #FFF;
+  padding: 40px 0px;
+  margin: 5px 0px;
+}
+
+.prop p{
+  color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 24px;
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
+}
+
+.prop h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+}
+
+.end {
+  text-align: right;
+}
+
