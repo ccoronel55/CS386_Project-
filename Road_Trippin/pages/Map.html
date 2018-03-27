@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Road Trippin'</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,700" rel="stylesheet">
+  	<link rel="stylesheet" type="text/css" href="../style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,700" rel="stylesheet">
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+mapboxgl.accessToken =
+'pk.eyJ1IjoiY2xhd3MiLCJhIjoiY2plbXcxNGxtMGE0MDJ4cXl2ZngzYmtoZSJ9.RT29Vm1TaIEB89TwzSdO4w';
+var map = new mapboxgl.Map({
+  container: 'map', // container id
+  style: 'mapbox://styles/claws/cjf8k1i6o55uv2rothno3hgph',
+  center: [-95.140, 37.091], // starting position
+  zoom: 3.5 // starting zoom
+});
+</script>
+
+
+<ul>
+  <li><a href="#Help">Help</a></li>
+  <li><a href="#about_me">My Profile</a></li>
+  <li><a class="active" href="index.html">Home</a></li>
+  <li><a href="#Help">Ps this is temporary</a></li>
+  <li style="float:left"><a href="index.html">Road Trippin'</a></li>
+</ul>
+
+</body>
+</html>
