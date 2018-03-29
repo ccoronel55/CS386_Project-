@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'dirtybag';
+    src: url('fonts/dirtybag/dirtybag___-webfont.woff2') format('woff2'), url('dirtybag___-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'neometric';
+    src: url('fonts/neometric/neometric-medium-webfont.woff2') format('woff2'), url('neometric-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+  margin: 0;
+  text-decoration: none;
+  color: black;
+  padding: 0;
+}
+body{
+  width: 100%;
+  height: 100%;
+}
+.topnav {
+    background-color: #FFFFFF;
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    padding: 0px;
+    z-index: 1;
+    border-bottom: 2px solid black;
+    display: flex;
+    text-align: right;
+}
+a#webname{
+  margin: 0;
+  padding-left: 1.5%;
+  float: left;
+  font-family: 'dirtybag';
+  font-size: -webkit-xxx-large;
+}
+
+.topnav a#r-links {
+  font-family: 'neometric';
+  display: inline-block;
+    font-size: 25px;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 100%;
+    font-size: xx-large;
+    margin: auto;
+}
+.r-links{
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+}
+div.rlinks a#r-links:hover {
+    border-bottom: 5px solid #000000;
+}
+div#map-container{
+  height: 90%;
+  width:75%;
+}
+div#header{
+  clear:both;
+  float: right;
+  width: 100%;
+  height: 5%;
+}
+div#map{
+  height: 75%;
+  width: 75%;
+  position: absolute;
+  bottom: 0;
+  right:0;
+}
