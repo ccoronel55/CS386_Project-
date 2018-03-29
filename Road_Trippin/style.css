@@ -45,21 +45,22 @@ a#webname{
 .topnav a#r-links {
   font-family: 'neometric';
   display: inline-block;
-    font-size: 25px;
-    height: 100%;
-    vertical-align: middle;
-    text-align: center;
-    line-height: 100%;
-    font-size: xx-large;
-    margin: auto;
+  font-size: 25px;
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 100%;
+  font-size: xx-large;
+  margin: auto;
 }
 .r-links{
   display: inline-block;
   vertical-align: middle;
   float: right;
+  width: -webkit-fill-available;
 }
 div.rlinks a#r-links:hover {
-    border-bottom: 5px solid #000000;
+    border-bottom: 5px solid black;
 }
 div#map-container{
   height: 90%;
