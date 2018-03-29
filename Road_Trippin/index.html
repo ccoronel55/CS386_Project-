@@ -17,16 +17,29 @@
 <body>
 
   <div class="topnav" id="Topnav">
-    <div class='r-links'>
+    <div class='links'>
       <a href="index.html" id='webname'>Road Trippin'</a>
-      <a href="#about_me"id='r-links'>My Profile</a>
-      <a href="#Help" id='r-links'>Help</a>
-      <a href="#Help"id='r-links'>About</a>
+      <div id='r-links'>
+        <div id='link'>
+          <a href="#about_me"id='r-links'>My Profile</a>
+        </div>
+        <div id='link'>
+          <a href="#Help" id='r-links'>Help</a>
+        </div>
+        <div id='link'>
+          <a href="#Help"id='r-links'>About</a>
+        </div>
+      </div>
     </div>
-  </ul>
   </div>
-  <div id='map-container'>
-  <div id='map'></div>
+  <div id='content'>
+    <div id='sidebar'>
+    </div>
+    <div id='map-container'>
+      <div id='map'>
+      </div>
+    </div>
+  </div>
 <script>
 mapboxgl.accessToken =
 'pk.eyJ1IjoiY2xhd3MiLCJhIjoiY2plbXcxNGxtMGE0MDJ4cXl2ZngzYmtoZSJ9.RT29Vm1TaIEB89TwzSdO4w';

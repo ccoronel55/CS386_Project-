@@ -1,14 +1,14 @@
 @font-face {
-    font-family: 'dirtybag';
-    src: url('fonts/dirtybag/dirtybag___-webfont.woff2') format('woff2'), url('dirtybag___-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'dirtybag';
+  src: url('fonts/dirtybag/dirtybag___-webfont.woff2') format('woff2'), url('dirtybag___-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'neometric';
-    src: url('fonts/neometric/neometric-medium-webfont.woff2') format('woff2'), url('neometric-medium-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'neometric';
+  src: url('fonts/neometric/neometric-medium-webfont.woff2') format('woff2'), url('neometric-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 *{
   margin: 0;
@@ -19,20 +19,22 @@
 body{
   width: 100%;
   height: 100%;
+  display: block;
 }
 .topnav {
-    background-color: #FFFFFF;
-    overflow: hidden;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    width: 100%;
-    padding: 0px;
-    z-index: 1;
-    border-bottom: 2px solid black;
-    display: flex;
-    text-align: right;
+  clear: both;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: max-content;
+  padding: 0px;
+  border-bottom: 2px solid black;
+  display: flex;
+  text-align: right;
 }
 a#webname{
   margin: 0;
@@ -41,7 +43,19 @@ a#webname{
   font-family: 'dirtybag';
   font-size: -webkit-xxx-large;
 }
-
+.links{
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+  width: -webkit-fill-available;
+}
+div#r-links{
+  height: 100%;
+}
+div#link{
+  display: inline-block;
+  height: 100%;
+}
 .topnav a#r-links {
   font-family: 'neometric';
   display: inline-block;
@@ -52,19 +66,25 @@ a#webname{
   line-height: 100%;
   font-size: xx-large;
   margin: auto;
+  height: max-content;
+  padding-top: 5%;
 }
-.r-links{
-  display: inline-block;
-  vertical-align: middle;
-  float: right;
-  width: -webkit-fill-available;
+div#r-links a#r-links:hover {
+  text-decoration: underline;
 }
-div.rlinks a#r-links:hover {
-    border-bottom: 5px solid black;
+div#content{
+  display: -webkit-inline-box;
+  width: 100%;
+  height: 100%;
 }
-div#map-container{
-  height: 90%;
-  width:75%;
+div#sidebar{
+  width: 25%;
+  height: -webkit-fill-available;
+}
+div#map-container {
+  height: -webkit-fill-available;
+  width: 75%;
+  overflow: hidden;
 }
 div#header{
   clear:both;
@@ -75,7 +95,12 @@ div#header{
 div#map{
   height: 75%;
   width: 75%;
-  position: absolute;
+  position: static;
   bottom: 0;
   right:0;
+}
+.mapboxgl-canvas{
+  position: absolute;
+    width: -webkit-fill-available;
+    height: initial;
 }
