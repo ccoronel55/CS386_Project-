@@ -82,10 +82,10 @@ div#content{
 }
 div#sidebar{
   width: 25%;
-  height: -webkit-fill-available;
+  height: fit-content;
 }
 div#map-container {
-  height: -webkit-fill-available;
+  height: initial;
   width: 75%;
   overflow: hidden;
 }
@@ -115,6 +115,9 @@ div#map{
 }
 .mapboxgl-canvas{
   position: absolute;
-    width: -webkit-fill-available;
-    height: initial;
+    width: auto !important;
+    height: auto !important;
+}
+.mapboxgl-ctrl-bottom-left{
+  margin-left: 25% !important;
 }
