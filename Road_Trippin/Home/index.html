@@ -9,7 +9,7 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #map { position:absolute; top:0; bottom:0; width:100%; height:fit-content !important; }
     </style>
 </head>
 <body>
@@ -59,11 +59,12 @@ map.on('load', function() {
   var mapDiv = document.getElementById('map');
   var mapCont = document.getElementById('map-container');
   document.getElementsByClassName('mapboxgl-ctrl-top-left')[0].style.display = 'none';
-  mapCont.style.height = '100%';
-  mapDiv.style.height = '100%';
+  mapCont.style.width = '100%';
+  mapCont.style.height = '-webkit-fill-available';
+  mapDiv.style.height = 'fit-content !important';
   mapCanvas.style.position = "absolute";
   mapCanvas.style.width = '100%';
-  mapCanvas.style.height = '100%';
+  mapCanvas.style.height = 'fit-content !important';
   mapCanvas.style.width = '100%';
   document.getElementsByClassName('mapboxgl-ctrl-bottom-left')[0].style.marginLeft = '25%';
   map.resize();

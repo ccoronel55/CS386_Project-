@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'dirtybag';
-  src: url('fonts/dirtybag/dirtybag___-webfont.woff2') format('woff2'), url('dirtybag___-webfont.woff') format('woff');
+  src: url('../fonts/dirtybag/dirtybag___-webfont.woff2') format('woff2'), url('dirtybag___-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'neometric';
-  src: url('fonts/neometric/neometric-medium-webfont.woff2') format('woff2'), url('neometric-medium-webfont.woff') format('woff');
+  src: url('../fonts/neometric/neometric-medium-webfont.woff2') format('woff2'), url('neometric-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -37,7 +37,6 @@ body{
   display: flex;
   text-align: right;
   z-index: 1;
-  color: black;
 }
 a#webname{
   margin: 0;
@@ -45,6 +44,7 @@ a#webname{
   float: left;
   font-family: 'dirtybag';
   font-size: -webkit-xxx-large;
+  color: black;
 }
 .links{
   display: inline-block;
@@ -78,9 +78,9 @@ div#r-links a#r-links:hover {
   text-decoration: underline;
 }
 div#content{
-  display: -webkit-inline-box;
+  display: -webkit-box;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 div#sidebar{
   width: 25%;
