@@ -33,7 +33,6 @@ body{
   width: 100%;
   height: max-content;
   padding: 0px;
-  border-bottom: 2px solid black;
   display: flex;
   text-align: right;
   z-index: 1;
@@ -87,7 +86,6 @@ div#sidebar{
   height: fit-content;
 }
 div#map-container {
-  height: -webkit-fill-available;
   width: 75%;
   overflow: hidden;
 }
@@ -96,6 +94,21 @@ div#header{
   float: right;
   width: 100%;
   height: 5%;
+}
+div#sidenav{
+  display: flex;
+  width: -webkit-fill-available;
+}
+div#sidenav button{
+  margin: none;
+  width: -webkit-fill-available;
+  border: none;
+  color: white;
+  height: 30px;
+  margin-top: 4%;
+  width: 50%;
+  font-family: sans-serif;
+  font-size: 15px;
 }
 button#new-trip{
   border-color: #e7e7e7;

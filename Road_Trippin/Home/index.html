@@ -9,7 +9,7 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; height:fit-content !important; }
+        #map { position:absolute; top:0; bottom:0; width:100%; height:100% !important; }
     </style>
 </head>
 <body>
@@ -32,12 +32,15 @@
   </div>
   <div id='content'>
     <div id='sidebar'>
+      <div id='sidenav'>
+        <button type="button" id='direct'>Directions</button>
+        <button type="button" id='explore'>Explore</button>
+      </div>
       <div id='search-area' style="display:none;">
         <input type="text" placeholder="Search..">
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
       </div>
-      <button type="button" id='new-trip'>Start Trippin'!</button>
     </div>
     <div id='map-container'>
       <div id='map'>
@@ -55,16 +58,15 @@ var map = new mapboxgl.Map({
 });
 
 map.on('load', function() {
+  document.getElementById('direct').style.backgroundColor = '#8a8acb';
+  document.getElementById('explore').style.color = 'black';
   var mapCanvas = document.getElementsByClassName('mapboxgl-canvas')[0];
   var mapDiv = document.getElementById('map');
   var mapCont = document.getElementById('map-container');
-  document.getElementsByClassName('mapboxgl-ctrl-top-left')[0].style.display = 'none';
+  document.getElementsByClassName('mapboxgl-ctrl-top-left')[0].style.marginTop = '10%';
   mapCont.style.width = '100%';
-  mapCont.style.height = '-webkit-fill-available';
-  mapDiv.style.height = 'fit-content !important';
-  mapCanvas.style.position = "absolute";
-  mapCanvas.style.width = '100%';
-  mapCanvas.style.height = 'fit-content !important';
+  mapCanvas.style.height = '-webkit-fill-available !important';
+  map.resize();
   mapCanvas.style.width = '100%';
   document.getElementsByClassName('mapboxgl-ctrl-bottom-left')[0].style.marginLeft = '25%';
   map.resize();
@@ -74,11 +76,21 @@ map.addControl(new MapboxDirections({
     accessToken: mapboxgl.accessToken
 }), 'top-left');
 
-document.getElementById('new-trip').addEventListener('click',function() {
-  document.getElementById('new-trip').style.display = 'none';
-  document.getElementById('search-area').style.display = 'unset';
+document.getElementById('direct').addEventListener('click',function() {
+  document.getElementById('search-area').style.display = 'none';
   document.getElementsByClassName('mapboxgl-ctrl-top-left')[0].style.display = 'unset';
-  document.getElementsByClassName('mapboxgl-ctrl-top-left')[0].style.marginTop = '10%';
+  document.getElementById('direct').style.backgroundColor = '#8a8acb';
+  document.getElementById('direct').style.color = 'white';
+  document.getElementById('explore').style.backgroundColor = 'unset';
+  document.getElementById('explore').style.color = 'black';
+});
+document.getElementById('explore').addEventListener('click',function() {
+  document.getElementById('direct').style.backgroundColor = 'unset';
+  document.getElementById('direct').style.color = 'black';
+  document.getElementById('explore').style.backgroundColor = '#3bb2d0';
+  document.getElementById('explore').style.color = 'white';
+  document.getElementById('search-area').style.display = 'unset';
+  document.getElementsByClassName('mapboxgl-ctrl-top-left')[0].style.display = 'none';
 });
 </script>
 
