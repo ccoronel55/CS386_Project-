@@ -1,0 +1,147 @@
+@font-face {
+  font-family: 'dirtybag';
+  src: url('../fonts/dirtybag/dirtybag___-webfont.woff2') format('woff2'), url('dirtybag___-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'neometric';
+  src: url('../fonts/neometric/neometric-medium-webfont.woff2') format('woff2'), url('neometric-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  margin: 0;
+  text-decoration: none;
+
+  padding: 0;
+  outline: none;
+}
+body{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.topnav {
+  clear: both;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: max-content;
+  padding: 0px;
+  display: flex;
+  text-align: right;
+  z-index: 1;
+}
+a#webname{
+  margin: 0;
+  padding-left: 1.5%;
+  float: left;
+  font-family: 'dirtybag';
+  font-size: -webkit-xxx-large;
+  color: black;
+}
+.links{
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+  width: -webkit-fill-available;
+}
+div#r-links{
+  height: 100%;
+}
+div#link{
+  display: inline-block;
+  height: 100%;
+  padding-right: .75%;
+}
+.topnav a#r-links {
+  font-family: 'neometric';
+  display: inline-block;
+  font-size: 25px;
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 100%;
+  font-size: xx-large;
+  margin: auto;
+  height: max-content;
+  padding-top: 5%;
+  color: black;
+}
+div#r-links a#r-links:hover {
+  text-decoration: underline;
+}
+div#content{
+  display: -webkit-box;
+  width: 100%;
+  height: auto;
+}
+div#sidebar{
+  width: 25%;
+  height: fit-content;
+}
+div#map-container {
+  width: 75%;
+  overflow: hidden;
+}
+div#header{
+  clear:both;
+  float: right;
+  width: 100%;
+  height: 5%;
+}
+div#sidenav{
+  display: flex;
+  width: -webkit-fill-available;
+}
+div#sidenav button{
+  margin: none;
+  width: -webkit-fill-available;
+  border: none;
+  color: white;
+  height: 30px;
+  margin-top: 4%;
+  width: 50%;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+button#new-trip{
+  border-color: #e7e7e7;
+  color: black;
+  height: 30px;
+  text-align: center;
+  margin: 4%;
+  width: -webkit-fill-available;
+  font-family: sans-serif;
+}
+button#new-trip:hover{
+  background: #e7e7e7;
+}
+div#search-area{
+  height: 30px;
+  text-align: center;
+  display: none;
+}
+input{
+  font-size: initial;
+  margin: 4%;
+  width: -webkit-fill-available;
+  font-family: sans-serif;
+}
+
+
+div#map{
+  height: 100%;
+  width: 100%;
+  position: static;
+  bottom: 0;
+  right:0;
+}
+div#map-container{
+  height: 100% !important;
+}

@@ -1,0 +1,169 @@
+body {
+  background-color: #FFF;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #5FEAE1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: right;
+}
+
+li:last-child {
+    border-left: none;
+}
+
+li a {
+    display: block;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.header {
+  background-image: url("images/0.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 700px;
+  width: 100%;
+}
+.header2{
+  background-image: url("pages/images/waves.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 700px;
+  width: 100%;
+}
+
+/* Add the ID selector to this CSS rule */
+
+ #header-text {
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  top: 25%;
+  width: 60%;
+}
+
+
+h1 {
+  color: #FFF;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 60px;
+  margin: 0;
+}
+
+h2 {
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 100;
+}
+
+h3 {
+  color: #FFF;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 30px;
+  margin: 10px 0px;
+  text-align: center;
+}
+
+h4 {
+  color: #000000;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 50px;
+  font-weight: 300;
+}
+
+p {
+  color: #545454;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 24px;
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
+}
+
+/* Add the class selector to this CSS rule */
+
+ .partner {
+  padding: 20px;
+  margin: 0 auto;
+  border-bottom: 1px solid #EEE;
+}
+
+.partner img {
+  position: relative;
+  top: 6px;
+}
+
+.aa-logo {
+  padding-left: 6px;
+}
+
+.main {
+  background: url("images/tealy.png");
+  margin: 0;
+  padding: 40px;
+}
+
+.value-props {
+  margin: 40px auto;
+  width: 60%;
+}
+
+.prop, .partner{
+   text-align: center;
+}
+
+.prop {
+  border: 1px solid #FFF;
+  padding: 40px 0px;
+  margin: 5px 0px;
+}
+
+.prop p{
+  color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 24px;
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
+}
+
+.prop h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+}
+
+.end {
+  text-align: right;
+}
+
