@@ -1,4 +1,3 @@
-<?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +14,7 @@ This file is part of Foobar.
     You should have received a copy of the GNU General Public License
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
+  <?php include('../firebase.php') ?>
   <title>Road Trippin'</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -51,15 +50,15 @@ This file is part of Foobar.
   }
   label{
     font-family: 'Open Sans', sans-serif;
-    margin-left: 25%;
-    width: 40%;
+    margin-left: 30%;
+    width: 20%;
   }
   input{
   	margin-left: 50px;
   }
   #project-form .inputs {
       margin-top: 25px;
-      color: #8f8f8f;
+    color: #8f8f8f;
       font-size: 12px;
       font-weight: 300;
       letter-spacing: 1px;
@@ -67,15 +66,11 @@ This file is part of Foobar.
       display: block;
   }
   p{
-  font-family: 'Open Sans', sans-serif;
-  text-align: right;
   padding:20px;
-  width: 60%;
-  display:inline;
+  width: 100%;
   }
-
   .buttons{
-  padding-left:0px;
+  padding-left:300px;
 }
   </style>
 </head>
@@ -84,32 +79,38 @@ This file is part of Foobar.
 <div class = "container">
   <form id ="project-form" href="../pages/MapPage.html" method="post">
 
-  <h1>Profile</h1>
+  <h1>Edit Profile Information</h1>
 	<div class = "inputs">
-
-  <label>Username:</label>
-    <p>SaraJ123</p>
+<label>Edit Username:</label>
+	      <input type="text"  placeholder="Enter New Username" name="username" required>
+		<br>
+<br>
+	<label>Edit Name:</label>
+		<input type="text"  placeholder="Enter New Name" name="name" required>
 	<br>
 <br>
-	<label>Name:</label>
-  <p>Sara Jones</p>
+	<label>Edit Phone-number:</label>
+		<input type="text" placeholder="Enter New Phone-Number" name="phone_number" required>
 	<br>
 <br>
-	<label>Phone-number:</label>
-  <p>(555)-555-5555</p>
-	<br>
+	<label>Edit Email:</label>
+	  <input type="text"  placeholder="Enter New Email" name="email" required>
+		<br>
 <br>
-	<label>Email:</label>
-  <p>sarajones@email.com</p>
-	<br>
-  <br>
-  <br>
+	  <label>Change Password:</label>
+	  <input type="password"  placeholder="Enter New Password" name="password" required>
+		<br>
+<br>
+	  <label>Confirm Password:</label>
+	  <input type="password"  placeholder="Repeat New Password" name="password-confirmation" required>
+	  </div>
+
+    <br>
 
 
-<div class="buttons" style="text-align:center;">
-		<a href="../pages/EditProfile.html"><button type="button" class="btn btn-info">Edit Profile</button></a>
-		<a href="../pages/Interests.html"><button type="button" class="btn btn-info">Edit Intrests</button></a>
-    <a href="../pages/MapPage.html"><button type="button" class="btn btn-info">Home</button></a>
+<div class="buttons">
+		<a href="../pages/MapPage.html"><button type="button" class="btn btn-info">Cancel</button></a>
+		<a href="../pages/ProfilePage.html"><button type="button" id="submitbtn" class="btn btn-info">Save Changes</button></a>
 </div>
 
 </form>

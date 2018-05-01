@@ -1,7 +1,7 @@
-<?php include('server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <?php include('../firebase.php') ?>
 <!--
 This file is part of Foobar.
 

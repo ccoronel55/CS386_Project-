@@ -1,5 +1,6 @@
 <html>
 <head>
+  <?php include('../firebase.php') ?>
   <title>Road Trippin'</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">

@@ -1,4 +1,3 @@
-<?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +17,7 @@ This file is part of Foobar.
     You should have received a copy of the GNU General Public License
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
+  <?php include '../firebase.php';?>
   <title>Road Trippin'</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
