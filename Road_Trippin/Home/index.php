@@ -158,9 +158,6 @@ button:disabled{
 
 <script>
 
-  document.getElementById('submitbtn').addEventListener('click',function() {
-
-  });
 
   	var form = document.getElementById('project-form');
     const users = firebase.database().ref().child('users');
@@ -169,6 +166,9 @@ button:disabled{
   	var errcount = 0;
 
   	function checkField(value){
+
+      var teststr = "../pages/Interests.php?id=" + document.getElementById('username').value;
+      $('a[href="../pages/Interests.php?id="]').prop('href',teststr);
   		var txtval = document.getElementById(value).value
   		// No value
   		if(txtval == ""){
@@ -252,6 +252,7 @@ button:disabled{
   				innerdiv.setAttribute("id", 'taken-username');
       		innerdiv.innerHTML = "<p>ERROR: The username has been taken already.</p>";
           (document.getElementById("error-display")).appendChild(innerdiv);
+          username = user;
           return
         }
         else {
@@ -260,12 +261,6 @@ button:disabled{
     				var innerdiv = document.getElementById('taken-username');
     				innerdiv.parentNode.removeChild(innerdiv);
     			}
-          var replacements = {"%USER%":document.getElementById('username').value},
-              str = "../pages/Interests.php?id=%USER%";
-          str = str.replace(/%\w+%/g, function(all) {
-             return replacements[all] || all;
-          });
-          document.getElementById("submitbtn").href = str;
         }
 
         })
@@ -394,6 +389,7 @@ button:disabled{
   		}
   		else{
         var password = pwrd1;
+        const userid = user;
   			document.getElementById("submitbtn").removeAttribute("disabled");
   			document.getElementById("submitbtn").onclick = function () {
             var newUserRef = users.push({
@@ -404,15 +400,7 @@ button:disabled{
               "phone": phone,
               "username": user
             });
-
-            var replacements = {"%USER%":user},
-                str = "../pages/Interests.php?id=%USER%";
-
-            str = str.replace(/%\w+%/g, function(all) {
-               return replacements[all] || all;
-            });
-            document.getElementById("submitbtn").href = str;
-  			 location.href = str;
+  			 location.href = ("../pages/Interests.php?id="+userid);
   	 		};
   		}
   	}
