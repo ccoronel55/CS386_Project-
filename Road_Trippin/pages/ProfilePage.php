@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <?php include('../firebase.php') ?>
+  <?php include('../firebase.js')?>
 <!--
 This file is part of Foobar.
     Foobar is free software: you can redistribute it and/or modify

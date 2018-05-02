@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include('../firebase.php') ?>
 <!--
 This file is part of Foobar.
 
@@ -18,7 +17,7 @@ This file is part of Foobar.
     You should have received a copy of the GNU General Public License
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <meta charset='utf-8' />
     <title>Road Trippin'</title>
   	<link rel="stylesheet" type="text/css" href="styleMap.css">
@@ -31,7 +30,7 @@ This file is part of Foobar.
     </style>
 </head>
 <body>
-
+<?php include('../firebase.js') ?>
   <div class="topnav" id="Topnav">
     <div class='links'>
       <a href="" id='webname'>Road Trippin'</a>
@@ -57,6 +56,8 @@ This file is part of Foobar.
       <div id='search-area' style="display:none;">
         <input type="text" placeholder="Search..">
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
+        // value
+        <pre id = 'explore'></pre>
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
       </div>
     </div>
