@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--
-This file is part of Foobar.
-    Foobar is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-    Foobar is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-    You should have received a copy of the GNU General Public License
-    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
--->
-  <?php include('../firebase.js') ?>
   <title>Road Trippin'</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -75,42 +61,30 @@ This file is part of Foobar.
   </style>
 </head>
 <body>
-
+<?php include('../firebase.js') ?>
 <div class = "container">
-  <form id ="project-form" href="../pages/MapPage.html" method="post">
+  <div id="error-display">
+  </div>
+  <form id ="project-form" href="MapPage.php?id=" method="post">
 
   <h1>Edit Profile Information</h1>
 	<div class = "inputs">
-<label>Edit Username:</label>
-	      <input type="text"  placeholder="Enter New Username" name="username" required>
-		<br>
-<br>
 	<label>Edit Name:</label>
-		<input type="text"  placeholder="Enter New Name" name="name" required>
+		<input type="text"  value="" id="name" onblur="checkField('name')" required>
 	<br>
 <br>
 	<label>Edit Phone-number:</label>
-		<input type="text" placeholder="Enter New Phone-Number" name="phone_number" required>
+		<input type="text" value="" id="phone" onblur="checkField('phone')" required>
 	<br>
 <br>
 	<label>Edit Email:</label>
-	  <input type="text"  placeholder="Enter New Email" name="email" required>
-		<br>
-<br>
-	  <label>Change Password:</label>
-	  <input type="password"  placeholder="Enter New Password" name="password" required>
-		<br>
-<br>
-	  <label>Confirm Password:</label>
-	  <input type="password"  placeholder="Repeat New Password" name="password-confirmation" required>
-	  </div>
-
-    <br>
+	  <input type="text"  value="" id="email" onblur="checkField('email')" required>
+    <br><br>
 
 
 <div class="buttons">
-		<a href="../pages/MapPage.html"><button type="button" class="btn btn-info">Cancel</button></a>
-		<a href="../pages/ProfilePage.html"><button type="button" id="submitbtn" class="btn btn-info">Save Changes</button></a>
+		<a href="MapPage.php?id="><button type="button" class="btn btn-info">Cancel</button></a>
+		<a href="ProfilePage.php?id="><button type="button" id="submitbtn" class="btn btn-info">Save</button></a>
 </div>
 
 </form>
@@ -118,6 +92,125 @@ This file is part of Foobar.
 
 
 <script>
-</script>
+  document.getElementById("submitbtn").setAttribute("disabled",true);
+  var username = "<?php if(isset($_REQUEST['id'])){ echo $_REQUEST['id'];}?>";
+  const users = firebase.database().ref().child('users');
+  var missing = [];
+  var clicked = [];
+  var errcount = 0;
+
+  var teststr1 = "ProfilePage.php?id=" + username;
+  $('a[href="ProfilePage.php?id="]').prop('href',teststr1);
+
+  var teststr2 = "MapPage.php?id=" + username;
+  $('a[href="MapPage.php?id="]').prop('href',teststr2);
+
+  // Populates with user data
+  users.orderByChild('username').equalTo(username).once('value', function(snap){
+    snap.forEach(function (objSnapshot) {
+      objSnapshot.forEach(function (snapshot) {
+        var val = snapshot
+        if(document.getElementById(val.key) != null){
+          document.getElementById(val.key).setAttribute("value",val.val());
+        }
+      });
+    });
+       return
+    });
+    function checkField(value){
+      var userflag = false;
+      var emailflag = false;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var name = document.getElementById('name').value;
+        // Checks if email has been taken
+        users.orderByChild('username').equalTo(username).once('value', function(snap){
+            snap.forEach(function(snapshot) {
+              snapshot.forEach(function (user) {
+                  if(user.key == "username"){
+                    if(user.val() == "<?php if(isset($_REQUEST['id'])){ echo $_REQUEST['id'];}?>"){
+                      userflag =true;
+                    }
+                  }
+                  else if (user.key == "email") {
+                    if(user.val() == email){
+                      emailflag =true;
+                    }
+                  }
+                  });
+              });
+              if(userflag == false || emailflag == false){
+                users.orderByChild('email').startAt(email).endAt(email).once('value', function(snap){
+                  if(snap.exists()){
+                    if(!document.getElementById('taken-email')){
+                      errcount++;
+                      var innerdiv = document.createElement('div');
+          				        innerdiv.setAttribute("id", 'taken-email');
+              		          innerdiv.innerHTML = "<p>ERROR: The email provided is associated with another account.</p>";
+                            (document.getElementById("error-display")).appendChild(innerdiv);
+                          }
+                          return
+                        }
+                        else {
+                          if(document.getElementById('taken-email')){
+          				              errcount--;
+          				                  var innerdiv = document.getElementById('taken-email');
+          				                      innerdiv.parentNode.removeChild(innerdiv);
+          			          }
+                        }
+                  });
+              }
+              return
+          });
+          validEmailError(email);
+  		checkSubmission(name,phone,email);
+    }
+  	function validEmailError(email){
+  		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+  			var innerdiv = document.getElementById("invalid-email-error");
+  			if(innerdiv){
+          errcount--;
+  				innerdiv.parentNode.removeChild(innerdiv);
+  			}
+      	return;
+    	}
+  		else{
+  			errcount++;
+  			document.getElementById("submitbtn").setAttribute("disabled",true);
+  			var innerdiv = document.createElement('div');
+  			innerdiv.setAttribute("id", "invalid-email-error");
+  			innerdiv.innerHTML = "<p>ERROR: Invalid email address provided.</p>";
+  			document.getElementById("error-display").appendChild(innerdiv);
+  		}
+  	}
+
+  	function checkSubmission(name,phone,email){
+  		if((name == "") || (phone == "") || (email == "") || errcount!=0){
+        alert("Test2");
+  			document.getElementById("submitbtn").setAttribute("disabled",true);
+  		}
+  		else{
+  			document.getElementById("submitbtn").removeAttribute("disabled");
+  			document.getElementById("submitbtn").onclick = function () {
+          alert("TEST");
+          users.orderByChild('name').equalTo(name).once('value', function(snap){
+            snap.forEach(function (objSnapshot) {
+              objSnapshot.forEach(function (snapshot) {
+                var val = snapshot
+                alert(val.key);
+                var value = document.getElementById(val.key).value;
+                var keyy = val.key;
+                if(document.getElementById(keyy).value != null){
+                  user.ref.update({[keyy] : [value]});
+                }
+              });
+            });
+               return
+            });
+  			 location.href = ("ProfilePage.php?id="+username);
+  	 		};
+  		}
+  	}
+  </script>
 </body>
 </html>

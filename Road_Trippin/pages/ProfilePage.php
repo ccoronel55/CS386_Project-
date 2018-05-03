@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <?php include('../firebase.js')?>
 <!--
 This file is part of Foobar.
     Foobar is free software: you can redistribute it and/or modify
@@ -24,6 +23,7 @@ This file is part of Foobar.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
   body {
@@ -81,7 +81,7 @@ This file is part of Foobar.
   </style>
 </head>
 <body>
-
+<?php include('../firebase.js') ?>
 <div class = "container">
   <form id ="project-form" href="../pages/MapPage.html" method="post">
 
@@ -89,35 +89,60 @@ This file is part of Foobar.
 	<div class = "inputs">
 
   <label>Username:</label>
-    <p>SaraJ123</p>
+    <p id="username"></p>
 	<br>
 <br>
 	<label>Name:</label>
-  <p>Sara Jones</p>
+  <p id="name"></p>
 	<br>
 <br>
 	<label>Phone-number:</label>
-  <p>(555)-555-5555</p>
+  <p id="phone"></p>
 	<br>
 <br>
 	<label>Email:</label>
-  <p>sarajones@email.com</p>
+  <p id="email"></p>
 	<br>
   <br>
   <br>
 
 
 <div class="buttons" style="text-align:center;">
-		<a href="../pages/EditProfile.html"><button type="button" class="btn btn-info">Edit Profile</button></a>
-		<a href="../pages/Interests.html"><button type="button" class="btn btn-info">Edit Intrests</button></a>
-    <a href="../pages/MapPage.html"><button type="button" class="btn btn-info">Home</button></a>
+		<a href="EditProfile.php?id="><button type="button" class="btn btn-info">Edit Profile</button></a>
+		<a href="Interests.php?id="><button type="button" class="btn btn-info">Edit Interests</button></a>
+    <a href="MapPage.php?id="><button type="button" class="btn btn-info">Home</button></a>
 </div>
 
 </form>
 </div>
 
 
-<script>
-</script>
+  <script>
+    var username = "<?php if(isset($_REQUEST['id'])){ echo $_REQUEST['id'];}?>";
+    const users = firebase.database().ref().child('users');
+
+    var teststr1 = "EditProfile.php?id=" + username;
+    $('a[href="EditProfile.php?id="]').prop('href',teststr1);
+
+    var teststr2 = "Interests.php?id=" + username;
+    $('a[href="Interests.php?id="]').prop('href',teststr2);
+
+    var teststr3 = "MapPage.php?id=" + username;
+    $('a[href="MapPage.php?id="]').prop('href',teststr3);
+
+    // Populates with user data
+    users.orderByChild('username').equalTo(username).once('value', function(snap){
+      snap.forEach(function (objSnapshot) {
+        objSnapshot.forEach(function (snapshot) {
+          var val = snapshot
+          if(document.getElementById(val.key) != null){
+            document.getElementById(val.key).innerHTML = val.val();
+        }
+        });
+      });
+         return
+      });
+
+  </script>
 </body>
 </html>

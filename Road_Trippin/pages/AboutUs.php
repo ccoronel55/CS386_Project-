@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
   body {
@@ -71,7 +72,7 @@
   </style>
 </head>
 <body>
-
+<?php include('../firebase.js') ?>
 <div class = "container">
   <form id ="project-form" href="pages/MapPage.html" method="post">
 
@@ -104,7 +105,7 @@
 	  <br />
 	  </p>
 <div class="buttons" style="padding-left:45%">
-		<a href="MapPage.html"><button type="button" id="button" class="btn btn-info">Back</button></a>
+		<a href="MapPage.php?id="><button type="button" id="button" class="btn btn-info">Back</button></a>
 </div>
 
 </form>
@@ -112,7 +113,11 @@
 
 
 <script>
+  var username = "<?php if(isset($_REQUEST['id'])){ echo $_REQUEST['id'];}?>";
+  const users = firebase.database().ref().child('users');
 
+  var teststr1 = "MapPage.php?id=" + username;
+  $('a[href="MapPage.php?id="]').prop('href',teststr1);
 
 </script>
 </body>

@@ -19,7 +19,7 @@
 }
 body{
   width: 100%;
-  height: 100%;
+  height: -webkit-fill-available !important;
   display: block;
 }
 .topnav {
@@ -79,7 +79,7 @@ div#r-links a#r-links:hover {
 div#content{
   display: -webkit-box;
   width: 100%;
-  height: auto;
+  height: -webkit-fill-available !important;
 }
 div#sidebar{
   width: 25%;

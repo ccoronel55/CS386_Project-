@@ -1,3 +1,4 @@
+
 <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -17,5 +18,5 @@
   const dbRefObject = firebase.database().ref().child('explore');
 
     // Sync object changes
-  dbRefObject.on('value', snap => console.log(snap.val()));
+  //dbRefObject.on('value', snap => console.log(snap.val()));
 </script>

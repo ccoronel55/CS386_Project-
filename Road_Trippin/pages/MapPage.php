@@ -23,11 +23,17 @@ This file is part of Foobar.
   	<link rel="stylesheet" type="text/css" href="styleMap.css">
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.js'></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.css' rel='stylesheet' />
     <style>
-        body { margin:0; padding:0; }
+        body { margin:0; padding:0; height: -webkit-fill-available !important;}
+        div#content{height: -webkit-fill-available !important;}
+        div#map-container{height: -webkit-fill-available !important;}
+        div.mapboxgl-canvas-container.mapboxgl-interactive, .mapboxgl-ctrl-nav-compass{height: -webkit-fill-available !important;}
+        canvas.mapboxgl-canvas{height: -webkit-fill-available !important;}
         #map { position:absolute; top:0; bottom:0; width:100%; height:100%; }
     </style>
+
 </head>
 <body>
 <?php include('../firebase.js') ?>
@@ -36,13 +42,13 @@ This file is part of Foobar.
       <a href="" id='webname'>Road Trippin'</a>
       <div id='r-links'>
         <div id='link'>
-          <a href="../pages/ProfilePage.html"id='r-links'>My Profile</a>
+          <a href="ProfilePage.php?id="id='r-links'>My Profile</a>
         </div>
         <div id='link'>
           <a href="#Help" id='r-links'>Help</a>
         </div>
         <div id='link'>
-          <a href="AboutUs.html"id='r-links'>About</a>
+          <a href="AboutUs.php?id="id='r-links'>About</a>
         </div>
       </div>
     </div>
@@ -56,7 +62,7 @@ This file is part of Foobar.
       <div id='search-area' style="display:none;">
         <input type="text" placeholder="Search..">
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
-        // value
+        <div id="explore-display"></div>
         <pre id = 'explore'></pre>
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
       </div>
@@ -76,7 +82,9 @@ var map = new mapboxgl.Map({
   zoom: 3.5 // starting zoom
 });
 
+
 map.on('load', function() {
+  map.resize();
   document.getElementById('direct').style.backgroundColor = '#8a8acb';
   document.getElementById('explore').style.color = 'black';
   var mapCanvas = document.getElementsByClassName('mapboxgl-canvas')[0];
@@ -112,6 +120,19 @@ document.getElementById('explore').addEventListener('click',function() {
   document.getElementsByClassName('mapboxgl-ctrl-top-left')[0].style.display = 'none';
 });
 </script>
+<script>
+//var innerdiv = document.createElement('div');
+//var str = arrToString(missing);
+//innerdiv.innerHTML = "<p id=reqfielderror>" + str + "</p>";
+//document.getElementById("error-display")).appendChild(innerdiv);
+var username = "<?php if(isset($_REQUEST['id'])){ echo $_REQUEST['id'];}?>";
+const users = firebase.database().ref().child('users');
 
+var teststr1 = "ProfilePage.php?id=" + username;
+$('a[href="ProfilePage.php?id="]').prop('href',teststr1);
+
+var teststr2 = "AboutUs.php?id=" + username;
+$('a[href="AboutUs.php?id="]').prop('href',teststr2);
+</script>
 </body>
 </html>
